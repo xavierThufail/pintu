@@ -1,4 +1,4 @@
-import CategoriesContent from "./CatogoriesContent";
+import CategoriesContent from "./CategoriesContent";
 
 const Categories = () => {
 
