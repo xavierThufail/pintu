@@ -6,12 +6,14 @@ import Header from '../../components/Header';
 import SearchSection from '../../components/Search';
 import TopMovers from '../../components/TopMovers';
 import Categories from '../../components/Categories';
+import Table from '../../components/Table';
 import { LoadingIcon } from '../../assets';
 
 const Content = () => (
   <React.Fragment>
     <TopMovers />
     <Categories />
+    <Table />
   </React.Fragment>
 );
 
