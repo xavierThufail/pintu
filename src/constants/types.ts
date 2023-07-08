@@ -1,3 +1,5 @@
+import React from "react";
+
 export type SubItemType = {
   title: string;
   subTitle: string;
@@ -58,3 +60,31 @@ export type CurrencyWithPriceType = CurrencyType & {
 export type PricesType = {
   [key: string]: PriceType;
 }
+
+export type CurrencyConfigType = {
+  symbol: string;
+  decimal: number;
+}
+
+export type CurrenciesConfigType = {
+  [currency: string]: CurrencyConfigType;
+};
+
+export type FetchAPIType = <TResponse>(url: string, config?: RequestInit) => Promise<TResponse>;
+
+export type FetchSuccessType = {
+  code: string;
+  message: string;
+};
+
+export type FetchPriceChangesResponse = FetchSuccessType & {
+  code: string;
+  message: string;
+  payload: PriceType[]
+};
+
+export type FetchSupportedCurrenciesResponse = {
+  code: string;
+  message: string;
+  payload: CurrencyType[]
+};
