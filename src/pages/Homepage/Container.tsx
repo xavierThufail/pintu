@@ -5,11 +5,13 @@ import { CurrenciesContext } from '../../hooks/useCurrencies';
 import Header from '../../components/Header';
 import SearchSection from '../../components/Search';
 import TopMovers from '../../components/TopMovers';
+import Categories from '../../components/Categories';
 import { LoadingIcon } from '../../assets';
 
 const Content = () => (
   <React.Fragment>
     <TopMovers />
+    <Categories />
   </React.Fragment>
 );
 
