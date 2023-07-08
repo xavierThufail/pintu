@@ -1,7 +1,9 @@
-import React from 'react';
+import Homepage from './pages/Homepage/Container';
 
-function App() {
-  return <h1>Pintu</h1>
-}
+const App = () => {
+  return (
+    <Homepage />
+  )
+};
 
-export default App
+export default App;
