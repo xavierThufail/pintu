@@ -137,6 +137,19 @@ export const listMenu = [
   }
 ];
 
+export const categories = [
+  'Terbaru',
+  'DeFi',
+  'NFT/Gaming',
+  'Cex',
+  'Dex',
+  'Layer-1',
+  'Infrastructure',
+  'Lending',
+  'Layer-2',
+  'Ekosistem Stablecoin'
+];
+
 export const currenciesConfig: CurrenciesConfigType = {
   idr: {
     symbol: 'Rp ',
