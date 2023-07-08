@@ -63,9 +63,8 @@ const Title = () => (
 
 const TopMoversContent = ({ topMoverCurrencies }: TopMoversContentProps) => {
 
-
   return (
-    <div className="md:text-lg">
+    <div className="text-lg md:text-xl">
       <Title />
       <Content topMoverCurrencies={topMoverCurrencies} />
     </div>
