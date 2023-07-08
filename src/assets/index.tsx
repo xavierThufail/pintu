@@ -10,6 +10,11 @@ type DirectionIconProps = {
   height: number;
 };
 
+type MockIconProps = {
+  width: number;
+  height: number;
+};
+
 export const DirectionIcon = ({ direction, width, height }: DirectionIconProps) => (
   <div className={direction === 'UP' ? 'rotate-180' : '' }>
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +33,15 @@ export const CloseIcon = () => (
     <g fill="none" fillRule="evenodd">
       <path d="M-4-4h24v24H-4z"></path>
       <path fill="#000" d="M6.586 8L.929 2.343 2.343.93 8 6.586 13.657.929l1.414 1.414L9.414 8l5.657 5.657-1.414 1.414L8 9.414l-5.657 5.657L.93 13.657 6.586 8z"></path>
+    </g>
+  </svg>
+);
+
+export const MockIcon = ({ width, height }: MockIconProps) => (
+  <svg width={width} height={height} viewBox="0 0 21 14" xmlns="http://www.w3.org/2000/svg">
+    <title>Icons/GUI/Code</title>
+    <g stroke="#000" strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 13l6-6-6-6M7 13L1 7l6-6"></path>
     </g>
   </svg>
 );
