@@ -3,6 +3,7 @@ import React from 'react';
 import images from '../../assets';
 
 import { ButtonProps } from '../../constants/types';
+import SearchField from './SearchField';
 
 const SearchIcon = ({ onClick }: ButtonProps) => (
   <div className='cursor-pointer' onClick={onClick}>
@@ -17,6 +18,10 @@ const MobileSearch = () => {
     setIsHidden(false);
   };
 
+  const onClickCloseButton = () => {
+    setIsHidden(true);
+  };
+
   return (
     <div className='pt-8 relative md:hidden'>
       <div className='px-4 mb-6 flex justify-between items-center mx-auto'>
@@ -24,7 +29,9 @@ const MobileSearch = () => {
         <SearchIcon onClick={onClickSearchIcon} />
       </div>
       {!isHidden && (
-        <div className='px-4 md:hidden absolute top-0 z-1 w-screen h-screen bg-white mt-4' />
+        <div className='px-4 md:hidden absolute top-0 z-1 w-screen h-screen bg-white mt-4'>
+          <SearchField onClose={onClickCloseButton} autoFocus />
+        </div>
       )}
     </div>
   )
