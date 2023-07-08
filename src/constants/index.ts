@@ -1,4 +1,4 @@
-import { CurrenciesConfigType } from "./types";
+import { CurrenciesConfigType, PriceKey } from "./types";
 
 export const listMenu = [
   {
@@ -163,7 +163,12 @@ export const currenciesConfig: CurrenciesConfigType = {
 
 export const MAX_DISPLAY_TOP_MOVERS = 6;
 
-export const PRICE_TYPE = [
+type PriceTypeSort = {
+  value: PriceKey;
+  text: string;
+};
+
+export const PRICE_TYPE: PriceTypeSort[] = [
   {
     value: 'day',
     text: '24 JAM',
