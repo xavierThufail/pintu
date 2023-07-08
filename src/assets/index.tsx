@@ -40,7 +40,7 @@ export const CloseIcon = () => (
 export const MockIcon = ({ width, height }: MockIconProps) => (
   <svg width={width} height={height} viewBox="0 0 21 14" xmlns="http://www.w3.org/2000/svg">
     <title>Icons/GUI/Code</title>
-    <g stroke="#000" strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
+    <g stroke="currentColor" strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 13l6-6-6-6M7 13L1 7l6-6"></path>
     </g>
   </svg>
