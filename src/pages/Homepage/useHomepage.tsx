@@ -11,6 +11,7 @@ import { fetchAPI } from '../../utils';
 
 const useHomepage = () => {
   const [currenciesWithPrice, setCurrenciesWithPrice] = React.useState<CurrencyWithPriceType[]>([]);
+
   const { data: currencies, error: currenciesError, isLoading: currenciesLoading } = useQuery({
     queryKey: ['currencies'],
     queryFn: async () =>
