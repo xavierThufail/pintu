@@ -162,3 +162,22 @@ export const currenciesConfig: CurrenciesConfigType = {
 };
 
 export const MAX_DISPLAY_TOP_MOVERS = 6;
+
+export const PRICE_TYPE = [
+  {
+    value: 'day',
+    text: '24 JAM',
+  },
+  {
+    value: 'week',
+    text: '1 MGG'
+  },
+  {
+    value: 'month',
+    text: '1 BLN'
+  },
+  {
+    value: 'year',
+    text: '1 THN'
+  }
+];
