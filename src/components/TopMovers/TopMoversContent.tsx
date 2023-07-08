@@ -50,7 +50,7 @@ const Item = (currency: CurrencyWithPriceType) => (
 const Content = ({ topMoverCurrencies }: TopMoversContentProps) => (
   <div className="px-4 flex justify-between overflow-scroll">
     {topMoverCurrencies.map((currency) => (
-      <Item {...currency} />
+      <Item key={currency.currencySymbol} {...currency} />
     ))}
   </div>
 );
