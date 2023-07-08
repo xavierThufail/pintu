@@ -56,7 +56,7 @@ const TableData = ({ priceType, currencies }:  { priceType: PriceKey, currencies
   );
 };
 
-const TableMobile = () => {
+const MobileTable = () => {
   const [priceType, setPriceType] = React.useState<PriceKey>('day');
   const currencies = useCurrencies();
 
@@ -70,6 +70,6 @@ const TableMobile = () => {
   )
 };
 
-TableMobile.displayName = 'TableMobileComponent';
+MobileTable.displayName = 'MobileTableComponent';
 
-export default TableMobile;
+export default MobileTable;
