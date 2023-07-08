@@ -1,9 +1,9 @@
 import React from 'react';
 
 import images from '../../assets';
+import SearchField from './SearchField';
 
 import { ButtonProps } from '../../constants/types';
-import SearchField from './SearchField';
 
 const SearchIcon = ({ onClick }: ButtonProps) => (
   <div className='cursor-pointer' onClick={onClick}>
@@ -30,7 +30,7 @@ const MobileSearch = () => {
       </div>
       {!isHidden && (
         <div className='px-4 md:hidden absolute top-0 z-1 w-screen h-screen bg-white mt-4'>
-          <SearchField onClose={onClickCloseButton} autoFocus />
+          <SearchField onClose={onClickCloseButton} showCurrencies autoFocus />
         </div>
       )}
     </div>
