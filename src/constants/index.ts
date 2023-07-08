@@ -1,3 +1,5 @@
+import { CurrenciesConfigType } from "./types";
+
 export const listMenu = [
   {
       title: "Fitur",
@@ -134,3 +136,16 @@ export const listMenu = [
       ]
   }
 ];
+
+export const currenciesConfig: CurrenciesConfigType = {
+  idr: {
+    symbol: 'Rp ',
+    decimal: 3
+  },
+  dollar: {
+    symbol: '$ ',
+    decimal: 3
+  },
+};
+
+export const MAX_DISPLAY_TOP_MOVERS = 6;
