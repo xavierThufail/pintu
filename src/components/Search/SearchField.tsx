@@ -7,6 +7,7 @@ export type SearchFieldProps = {
   onClose?: () => void;
   onFocus?: () => void;
   autoFocus?: boolean;
+  disabled?: boolean;
 };
 
 export type SearchInputType = {
@@ -42,11 +43,11 @@ const SearcInput = ({ autoFocus, value, onChange, onFocus }: SearchInputType) =>
   </div>
 );
 
-const SearchField = ({ onClose, autoFocus, onFocus }: SearchFieldProps) => {
+const SearchField = ({ onClose, autoFocus, onFocus, disabled }: SearchFieldProps) => {
   const [searchText, setSearchText] = React.useState<string>('');
 
   const handleInputChange: onChangeInput = ({ target: { value } }) => {
-    setSearchText(value);
+    !disabled && setSearchText(value);
   };
 
   return (
