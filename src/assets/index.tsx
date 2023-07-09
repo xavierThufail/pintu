@@ -58,6 +58,18 @@ export const LoadingIcon = () => (
   </div>
 );
 
+export const SortableIcon = ({ active }: { active?: 'desc' | 'asc' }) => (
+  <div>
+    <svg color={active === 'asc' ? 'black' : '#929396'} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="1">
+      <path fillRule="evenodd" clipRule="evenodd" d="M5.71877 0.298014L9.70179 4.25522C10.0994 4.65257 10.0994 5.29445 9.70179 5.6918C9.30417 6.08915 8.66187 6.08915 8.26425 5.6918L4.9949 2.46817L1.73575 5.70199C1.33813 6.09934 0.69583 6.09934 0.298213 5.70199C-0.0994042 5.30463 -0.0994042 4.66276 0.298213 4.2654L4.28123 0.298014C4.67885 -0.0993381 5.32115 -0.0993381 5.71877 0.298014Z" fill={active === 'asc' ? 'black' : '#929396'} opacity="1"></path>
+    </svg>
+    <div className='h-1' />
+    <svg color={active === 'desc' ? 'black' : '#929396'} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="1">
+      <path fillRule="evenodd" clipRule="evenodd" d="M0.298213 0.298014C0.69583 -0.0993381 1.33813 -0.0993381 1.73575 0.298014L4.9949 3.53183L8.26425 0.308202C8.66187 -0.08915 9.30417 -0.08915 9.70179 0.308202C10.0994 0.705554 10.0994 1.34743 9.70179 1.74478L5.71877 5.70199C5.32115 6.09934 4.67885 6.09934 4.28123 5.70199L0.298213 1.73459C-0.0994042 1.33724 -0.0994042 0.695366 0.298213 0.298014Z" fill={active === 'desc' ? 'black' : '#929396'} opacity="1"></path>
+    </svg>
+  </div>
+);
+
 const images = {
   logo,
   burger,
