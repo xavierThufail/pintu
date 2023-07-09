@@ -1,12 +1,19 @@
 import React from "react";
 
-import TableMobile from "./TableMobile";
+import MobileTable from "./MobileTable";
+import DesktopTable from "./DesktopTable";
+import { useSearchContext } from "../../hooks/useSearch";
 
-const Table = () => (
-  <React.Fragment>
-    <TableMobile />
-  </React.Fragment>
-);
+const Table = () => {
+  const { isFocused } = useSearchContext();
+
+  return (
+    <React.Fragment>
+      {!isFocused && <MobileTable />}
+      <DesktopTable />
+    </React.Fragment>
+  );
+};
 
 Table.displayName = 'TableContainer';
 
