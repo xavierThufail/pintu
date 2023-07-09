@@ -15,13 +15,13 @@ const useHomepage = () => {
   const { data: currencies, error: currenciesError, isLoading: currenciesLoading } = useQuery({
     queryKey: ['currencies'],
     queryFn: async () =>
-      await fetchAPI<FetchSupportedCurrenciesResponse>('https://api.pintu.co.id/v2/wallet/supportedCurrencies'),
+      await fetchAPI<FetchSupportedCurrenciesResponse>('https://pintu-proxy.vercel.app/supported-currencies'),
   });
 
   const { data: prices, error: pricesError, isLoading: pricesLoading } = useQuery({
     queryKey: ['prices'],
     queryFn: async () => {
-      const data = await fetchAPI<FetchPriceChangesResponse>('https://api.pintu.co.id/v2/trade/price-changes');
+      const data = await fetchAPI<FetchPriceChangesResponse>('https://pintu-proxy.vercel.app/price-changes');
 
       return data.payload.reduce((result, value) => {
         const symbol = value.pair.split('/')[0].toUpperCase() as string;
