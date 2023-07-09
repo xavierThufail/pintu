@@ -1,4 +1,4 @@
-import { CurrenciesConfigType, PriceKey } from "./types";
+import { CurrenciesConfigType, DirectionType, PriceKey, PriceTypeSort } from "./types";
 
 export const listMenu = [
   {
@@ -7,27 +7,22 @@ export const listMenu = [
         {
           title: 'Harga Cryptocurrency',
           subTitle: 'Pantau harga Bitcoin dan aset crypto lainnya',
-          icon: 'akjsdklas'
         },
         {
           title: 'Earn',
           subTitle: 'Simpan aset crypto, dapatkan bunga tiap jam',
-          icon: 'akjsdklas'
         },
         {
           title: 'Biaya Transaksi',
           subTitle: 'Lihat biaya trading, tarik Rupiah, dan kirim aset crypto',
-          icon: 'akjsdklas'
         },
         {
           title: 'Limit Trading Beli/Jual',
           subTitle: 'Ketahui jumlah minimum dan maksimum trading di Pintu',
-          icon: 'akjsdklas'
         },
         {
           title: 'OTC',
           subTitle: 'Layanan personal dengan harga khusus untuk transaksi dengan jumlah besar',
-          icon: 'akjsdklas'
         }
       ]
   },
@@ -39,49 +34,45 @@ export const listMenu = [
       title: "Edukasi",
       subItems: [
         {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
+          title: 'Tentang',
+          subTitle: 'Jelajahi dunia crypto bersama Pintu',
         },
         {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
+          title: 'Pintu Academy',
+          subTitle: 'Kumpulan artikel untuk bantu kamu memahami crypto dengan lebih gampang',
         },
         {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
+          title: 'FAQ',
+          subTitle: 'Informasi seputar crypto dan cara menggunakan aplikasi Pintu',
         },
-        {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
-        }
       ]
   },
   {
       title: "Ikuti Kami",
       subItems: [
         {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
+          title: 'Telegram',
+          subTitle: '@pintuindonesia',
         },
         {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
+          title: 'Twitter',
+          subTitle: '@pintuID',
         },
         {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
+          title: 'Instagram',
+          subTitle: '@pintu_id',
         },
         {
-          title: 'Harga',
-          subTitle: 'SubTitle',
-          icon: 'akjsdklas'
+          title: 'Youtube',
+          subTitle: 'Pintu - Aplikasi Jual Beli Cryptocurrency',
+        },
+        {
+          title: 'Facebook',
+          subTitle: 'pintucrypto',
+        },
+        {
+          title: 'Discord',
+          subTitle: 'pintuindonesia',
         }
       ]
   },
@@ -126,12 +117,10 @@ export const listMenu = [
         {
           title: 'Indonesia',
           subTitle: '',
-          icon: 'akjsdklas'
         },
         {
           title: 'English',
           subTitle: '',
-          icon: 'akjsdklas'
         }
       ]
   }
@@ -163,12 +152,11 @@ export const currenciesConfig: CurrenciesConfigType = {
 
 export const MAX_DISPLAY_TOP_MOVERS = 6;
 
-type PriceTypeSort = {
-  value: PriceKey;
-  text: string;
-};
-
 export const PRICE_TYPE: PriceTypeSort[] = [
+  {
+    value: 'latestPrice',
+    text: 'Harga'
+  },
   {
     value: 'day',
     text: '24 JAM',
@@ -186,3 +174,5 @@ export const PRICE_TYPE: PriceTypeSort[] = [
     text: '1 THN'
   }
 ];
+
+export const stepDirection: DirectionType[] = ['desc', 'asc'];

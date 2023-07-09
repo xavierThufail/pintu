@@ -1,5 +1,12 @@
 import React from "react";
 
+export type DirectionType = 'desc' | 'asc';
+
+export type PriceTypeSort = {
+  value: PriceKey;
+  text: string;
+};
+
 export type SubItemType = {
   title: string;
   subTitle: string;
