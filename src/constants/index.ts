@@ -1,4 +1,4 @@
-import { CurrenciesConfigType, DirectionType, PriceKey, PriceTypeSort } from "./types";
+import { CurrenciesConfigType, DirectionType, PriceTypeSort } from "./types";
 
 export const listMenu = [
   {
