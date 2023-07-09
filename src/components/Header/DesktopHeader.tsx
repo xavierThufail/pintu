@@ -58,7 +58,7 @@ const MenuItem = ({ active, onClick, item, justifyEnd }: MenuItemProps) => (
   <React.Fragment>
     <div
       onClick={onClick}
-      className='relative z-50'
+      className='relative z-50 cursor-pointer'
     >
       <h1
         className={`text px-5 lg:px-10 ${active ? 'text-gray-400' : ''}`}
