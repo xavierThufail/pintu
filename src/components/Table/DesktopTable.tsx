@@ -35,7 +35,7 @@ const TableHeadCrypto = () => (
 );
 
 const TableHeadPriceSort = ({ sortBy, direction, text, value, handleChangeSort }: TableHeadPriceSortProps) => (
-  <th onClick={handleChangeSort(value)} className='p-3 font-semibold text-left text-gray-400'>
+  <th onClick={handleChangeSort(value)} className='p-3 font-semibold text-left text-gray-400 cursor-pointer'>
     <div className='flex items-center'>
       <span className='mr-3'>{text}</span>
       <SortableIcon active={sortBy === value ? direction : undefined} />
@@ -86,9 +86,10 @@ const generateContent = (type: PriceKey) => {
 
 const TableDataCol = ({ type, currency }: TableDataColProps) => {
   const Content = generateContent(type);
+  const isPointerCursor = type === 'pair';
 
   return (
-    <td className='p-3 border-solid border-t font-medium'>
+    <td className={`p-3 border-solid border-t font-medium ${isPointerCursor ? 'cursor-pointer' : ''}`}>
       <Content {...currency} type={type} />
     </td>
   )
