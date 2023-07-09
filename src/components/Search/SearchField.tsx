@@ -2,6 +2,7 @@ import React from 'react';
 
 import images, { CloseIcon } from '../../assets';
 import { ButtonProps, CurrencyWithPriceType, onChangeInput } from '../../constants/types';
+import { useSearchContext } from '../../hooks/useSearch';
 import useCurrencies from '../../hooks/useCurrencies';
 
 export type SearchFieldProps = {
@@ -83,21 +84,26 @@ const SearcInput = ({ autoFocus, value, onChange, onFocus }: SearchInputType) =>
   </div>
 );
 
-const SearchField = ({ onClose, onFocus, showCurrencies, itemsContainerClassName, disabled, autoFocus }: SearchFieldProps) => {
-  const [searchText, setSearchText] = React.useState<string>('');
+const SearchField = ({
+  onClose, onFocus, showCurrencies, itemsContainerClassName, disabled, autoFocus
+}: SearchFieldProps) => {
+  const {
+    value,
+    setValue
+  } = useSearchContext();
 
   const currencies = useCurrencies();
 
-  const handleInputChange: onChangeInput = ({ target: { value } }) => {
-    !disabled && setSearchText(value);
-  };
-
   const filteredCurrencies = React.useMemo(() => {
-    const searchTextLowerCase = searchText.toLowerCase();
+    const valueLowerCase = value.toLowerCase();
     return currencies.filter((currency) =>
-      currency.currencySymbol.toLowerCase().includes(searchTextLowerCase)
-        || currency.name.toLowerCase().includes(searchTextLowerCase))
-  }, [searchText, currencies]);
+      currency.currencySymbol.toLowerCase().includes(valueLowerCase)
+        || currency.name.toLowerCase().includes(valueLowerCase))
+  }, [value, currencies]);
+
+  const handleInputChange: onChangeInput = ({ target: { value } }) => {
+    !disabled && setValue(value);
+  };
 
   return (
     <React.Fragment>
@@ -105,14 +111,14 @@ const SearchField = ({ onClose, onFocus, showCurrencies, itemsContainerClassName
         <SearchIcon />
         <SearcInput
           onFocus={onFocus}
-          value={searchText}
+          value={value}
           onChange={handleInputChange}
           autoFocus={autoFocus}
         />
         {onClose && <CloseButton onClick={onClose} />}
       </div>
       <ListItem
-        value={searchText}
+        value={value}
         data={filteredCurrencies}
         showCurrencies={showCurrencies}
         itemsContainerClassName={itemsContainerClassName}

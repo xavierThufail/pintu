@@ -2,16 +2,17 @@ import React from 'react';
 
 import SearchField from './SearchField';
 import useOutsideClick from '../../hooks/useCheckClick';
+import { useSearchContext } from '../../hooks/useSearch';
 
 const DesktopSearch = () => {
-  const [isFocus, setIsFocus] = React.useState(false);
+  const { isFocused, setIsFocused } = useSearchContext();
 
   const searchRef = React.useRef(null);
 
-  useOutsideClick(searchRef, () => setIsFocus(false));
+  useOutsideClick(searchRef, () => setIsFocused(false));
 
   const handleFocus = () => {
-    setIsFocus(!isFocus)
+    setIsFocused(!isFocused)
   };
 
   return (
@@ -19,7 +20,7 @@ const DesktopSearch = () => {
       <div className='px-4 flex justify-between items-center mt-5 mb-8'>
         <span className='font-bold text-2xl'>Harga Crypto dalam Rupiah Hari Ini</span>
         <div className='w-96'>
-          {isFocus && (
+          {isFocused && (
             <div ref={searchRef} className='border w-96 p-3 rounded-xl bg-white absolute'>
               <SearchField
                 autoFocus

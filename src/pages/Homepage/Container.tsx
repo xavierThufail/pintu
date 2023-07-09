@@ -2,6 +2,7 @@ import React from 'react';
 
 import useHomepage from './useHomepage';
 import { CurrenciesContext } from '../../hooks/useCurrencies';
+import useSearch, { SearchContext } from '../../hooks/useSearch';
 import Header from '../../components/Header';
 import SearchSection from '../../components/Search';
 import TopMovers from '../../components/TopMovers';
@@ -24,17 +25,21 @@ const Homepage = () => {
     isLoading
   } = useHomepage();
 
+  const hookSearch = useSearch();
+
   if (error) return (
     <span>ERROR</span>
-  )
+  );
 
   return (
     <CurrenciesContext.Provider value={currencies}>
-      <div className='max-w-screen-xl mx-auto'>
-        <Header />
-        <SearchSection />
-        {isLoading ? <LoadingIcon /> : <Content />}
-      </div>
+      <SearchContext.Provider value={hookSearch}>
+        <div className='max-w-screen-xl mx-auto'>
+          <Header />
+          <SearchSection />
+          {isLoading ? <LoadingIcon /> : <Content />}
+        </div>
+      </SearchContext.Provider>
     </CurrenciesContext.Provider>
   );
 };

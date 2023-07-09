@@ -1,9 +1,8 @@
-import React from 'react';
-
 import images from '../../assets';
 import SearchField from './SearchField';
 
 import { ButtonProps } from '../../constants/types';
+import { useSearchContext } from '../../hooks/useSearch';
 
 const SearchIcon = ({ onClick }: ButtonProps) => (
   <div className='cursor-pointer' onClick={onClick}>
@@ -12,14 +11,14 @@ const SearchIcon = ({ onClick }: ButtonProps) => (
 );
 
 const MobileSearch = () => {
-  const [isHidden, setIsHidden] = React.useState<boolean>(true);
+  const { isFocused, setIsFocused } = useSearchContext();
 
   const onClickSearchIcon = () => {
-    setIsHidden(false);
+    setIsFocused(true);
   };
 
   const onClickCloseButton = () => {
-    setIsHidden(true);
+    setIsFocused(false);
   };
 
   return (
@@ -28,8 +27,8 @@ const MobileSearch = () => {
         <span className='font-bold text-lg'>Harga Crypto dalam Rupiah Hari Ini</span>
         <SearchIcon onClick={onClickSearchIcon} />
       </div>
-      {!isHidden && (
-        <div className='px-4 md:hidden absolute top-0 z-1 w-screen h-screen bg-white mt-4'>
+      {isFocused && (
+        <div className='px-4 md:hidden absolute top-0 z-1 w-screen min-h-screen bg-white mt-4'>
           <SearchField onClose={onClickCloseButton} showCurrencies autoFocus />
         </div>
       )}
