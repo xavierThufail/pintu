@@ -4,6 +4,7 @@ import images, { DirectionIcon } from '../../assets';
 import { HeaderProps, ButtonProps, SubItemType, ItemType } from '../../constants/types';
 import { listMenu } from '../../constants';
 import { LogoHeader, MenuSubItemContent} from './shared';
+import useOutsideClick from '../../hooks/useCheckClick';
 
 type LanguageButtonProps = ButtonProps & {
   active: boolean;
@@ -69,26 +70,34 @@ const MenuItem = ({ active, onClick, item, justifyEnd }: MenuItemProps) => (
   </React.Fragment>
 );
 
-const Menu = ({ list, handleClickItem, activeId }: MenuProps) => (
-  <div className='flex items-start'>
-    {list.map((item, id) => {
-      const Component = item.title === 'Bahasa'
-        ? LanguageButton
-        : MenuItem;
+const Menu = ({ list, handleClickItem, activeId }: MenuProps) => {
+  const menuRef = React.useRef(null);
 
-      return (
-        <div key={id} className='relative'>
-          <Component
-            onClick={handleClickItem(id)}
-            active={activeId === id}
-            item={item}
-            justifyEnd={activeId >= (list.length - 3)}
-          />
-        </div>
-      );
-    })}
-  </div>
-);
+  useOutsideClick(menuRef, () => {
+    handleClickItem(-1)();
+  });
+
+  return (
+    <div ref={menuRef} className='flex items-start'>
+      {list.map((item, id) => {
+        const Component = item.title === 'Bahasa'
+          ? LanguageButton
+          : MenuItem;
+
+        return (
+          <div key={id} className='relative'>
+            <Component
+              onClick={handleClickItem(id)}
+              active={activeId === id}
+              item={item}
+              justifyEnd={activeId >= (list.length - 3)}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 const DesktopHeader = () => {
   const [activeId, setActiveId] = React.useState<number>(-1);
