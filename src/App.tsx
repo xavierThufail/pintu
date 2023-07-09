@@ -1,5 +1,18 @@
-function App() {
-  return <h1>Pintu</h1>
-}
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
-export default App
+import Homepage from './pages/Homepage/Container';
+
+const queryClient = new QueryClient()
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Homepage />
+    </QueryClientProvider>
+  )
+};
+
+export default App;
