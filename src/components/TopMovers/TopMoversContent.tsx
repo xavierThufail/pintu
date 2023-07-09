@@ -27,7 +27,7 @@ const ItemPrice = ({ price }: CurrencyWithPriceType) => (
 );
 
 const Item = (currency: CurrencyWithPriceType) => (
-  <div className="p-4 min-w-max md:min-w-0">
+  <div className="p-4 min-w-max md:min-w-0 rounded-lg hover:bg-gray-100 cursor-pointer">
     <ItemTitle {...currency} />
     <ItemPrice {...currency} />
   </div>
