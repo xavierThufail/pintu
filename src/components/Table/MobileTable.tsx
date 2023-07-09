@@ -8,7 +8,7 @@ import PercentageMove from '../PercentageMove';
 
 const SelectTableHead = ({ setPriceType }: { setPriceType: (priceType: PriceKey) => void }) => (
   <select className='border rounded p-1 text-xs' onChange={(event) => setPriceType(event.target.value as PriceKey)}>
-    {PRICE_TYPE.map((type) => (
+    {PRICE_TYPE.slice(1).map((type) => (
       <option key={type.value} value={type.value}>{type.text}</option>
     ))}
   </select>
